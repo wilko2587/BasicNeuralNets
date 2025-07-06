@@ -17,14 +17,41 @@ The demo includes a synthetic dataset where each set contains points from 3 diff
 
 ```
 BasicNeuralNets/
-├── main.py                 # Main script - complete pipeline
-├── generate_dummy_data.py  # Data generation utilities
-├── dataset.py             # Dataset handling and dataloaders
-├── model.py               # Deep Set autoencoder architecture
-├── scorer.py              # Loss functions (Chamfer distance)
 ├── environment.yml        # Conda environment specification
-└── README.md              # This documentation
+└── deep_set/
+    ├── main.py                 # Main script - complete pipeline
+    ├── generate_dummy_data.py  # Data generation utilities
+    ├── dataset.py             # Dataset handling and dataloaders
+    ├── model.py               # Deep Set autoencoder architecture
+    ├── scorer.py              # Loss functions (Chamfer distance)
+    ├── README.md              # This documentation
+    └── __init__.py            # Package marker
 ```
+
+## How to Run
+
+1. **Create conda environment (from project root):**
+```bash
+conda env create -f environment.yml
+```
+
+2. **Activate environment:**
+```bash
+conda activate basic-neural-nets
+```
+
+3. **Run the pipeline (from inside the deep_set directory):**
+```bash
+cd deep_set
+python -m main
+```
+
+This will:
+1. Generate synthetic data in memory
+2. Initialize the dataset and dataloaders
+3. Create and train the Deep Set autoencoder
+4. Analyze and visualize the learned embeddings
+5. Save the trained model and visualization
 
 ## Architecture
 
@@ -46,33 +73,6 @@ The Deep Set architecture consists of:
 - **Chamfer Distance Loss**: Appropriate loss function for set reconstruction
 - **In-Memory Data Generation**: No disk I/O required
 - **Complete Pipeline**: Single script runs everything
-
-## Installation
-
-1. **Create conda environment:**
-```bash
-conda env create -f environment.yml
-```
-
-2. **Activate environment:**
-```bash
-conda activate basic-neural-nets
-```
-
-## Quick Start
-
-Run the complete pipeline with a single command:
-
-```bash
-python main.py
-```
-
-This will:
-1. Generate synthetic data in memory
-2. Initialize the dataset and dataloaders
-3. Create and train the Deep Set autoencoder
-4. Analyze and visualize the learned embeddings
-5. Save the trained model and visualization
 
 ## Data Structure
 

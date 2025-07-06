@@ -19,10 +19,10 @@ from sklearn.cluster import KMeans
 from itertools import permutations
 from tqdm import tqdm
 
-from generate_dummy_data import generate_dummy_data, get_feature_info
-from dataset import create_dataloaders
-from model import DeepSetAutoencoder
-from scorer import ChamferLoss
+from .generate_dummy_data import generate_dummy_data, get_feature_info
+from .dataset import create_dataloaders
+from .model import DeepSetAutoencoder
+from .scorer import ChamferLoss
 
 
 def train_epoch(model, dataloader, optimizer, criterion, device):
